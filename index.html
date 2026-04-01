@@ -1,531 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuxeScents | Signature Fragrances</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap');
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #faf6f2;
-            color: #333;
-            user-select: none;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            /* Safari support */
-        }
-        
-        h1,
-        h2,
-        h3 {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bf324093-565e-4d29-acc3-2879b9c0d508.png') center/cover no-repeat;
-            min-height: 80vh;
-        }
-        
-        .perfume-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .scent-wheel {
-            background: conic-gradient( #FFD1DC 0% 20%, #FFECB8 20% 40%, #B5EAD7 40% 60%, #C7CEEA 60% 80%, #E2F0CB 80% 100%);
-            border-radius: 50%;
-        }
-        
-        .fade-in {
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        /* Prevent text selection for all elements */
-        
-        * {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-    </style>
-</head>
-
-<body class="overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="bg-white bg-opacity-90 backdrop-blur-sm fixed w-full z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-start">
-                <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-amber-800">
-                        <i class="fas fa-spa mr-2"></i>Asha Scents
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#fragrances" class="text-gray-700 hover:text-amber-600 transition">Fragrances</a>
-                    <a href="#about" class="text-gray-700 hover:text-amber-600 transition">Our Story</a>
-                    <a href="#guide" class="text-gray-700 hover:text-amber-600 transition">Scent Guide</a>
-                    <a href="#contact" class="text-gray-700 hover:text-amber-600 transition">Contact</a>
-                    <a href="#" class="ml-4">
-                        <i class="fas fa-shopping-bag text-xl text-amber-700 hover:text-amber-900 transition"></i>
-                    </a>
-                </div>
-                <div class="block md:hidden flex items-start mt-2 absolute right-4 top-4 z-50">
-                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none" title="Open menu" aria-label="Open menu">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="md:hidden hidden fixed inset-0 bg-white bg-opacity-95 pt-20 pb-4 px-8 shadow-lg z-40 transition-all duration-300">
-            <a href="#fragrances" class="block py-4 text-lg text-gray-700 hover:text-amber-600">Fragrances</a>
-            <a href="#about" class="block py-4 text-lg text-gray-700 hover:text-amber-600">Our Story</a>
-            <a href="#guide" class="block py-4 text-lg text-gray-700 hover:text-amber-600">Scent Guide</a>
-            <a href="#contact" class="block py-4 text-lg text-gray-700 hover:text-amber-600">Contact</a>
-            <a href="#" class="block py-4 text-lg text-amber-700">Shop</a>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mistry Scent | Signature Fragrances</title>
+    
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <!--  NAV  -->
+    <nav id="mainNav">
+      <a href="#" class="nav-logo">Mistry<em>Scents</em></a>
+      <ul class="nav-links">
+        <li><a href="#fragrances">Fragrances</a></li>
+        <li><a href="pages/about.html">Our Story</a></li>
+        <li><a href="#guide">Scent Guide</a></li>
+        <li><a href="pages/testimonials.html">Reviews</a></li>
+      </ul>
+      <button class="nav-bag" id="navBag" aria-label="Open shopping bag">
+        <i class="fas fa-shopping-bag" style="font-size: 0.85rem"></i>
+        <span class="nav-bag-count" id="cartCount">0</span>
+      </button>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero flex items-center justify-center text-white relative pt-16">
-        <div class="text-center px-4 fade-in">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">Essence of Luxury</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-                Curated fragrances crafted with rare ingredients for unforgettable elegance
-            </p>
-            <a href="#fragrances" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full 
-            font-medium tracking-wide transition duration-300 inline-block">
-                Explore Scents
-            </a>
-        </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-close" id="mobileClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <a href="#fragrances">Fragrances</a>
+      <a href="pages/about.html">Our Story</a>
+      <a href="#guide">Scent Guide</a>
+      <a href="pages/testimonials.html">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
 
-        <div class="absolute bottom-8 left-0 right-0 text-center">
-            <i class="fas fa-chevron-down text-white text-3xl animate-bounce"></i>
+    <!--  HERO  -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Signature Collection 2025</div>
+        <h1>The Art of<br /><em>Rare</em> Fragrance</h1>
+        <p class="hero-sub">
+          Curated scents crafted from the world's finest botanicals. Each bottle
+          holds an invisible story, made to be worn.
+        </p>
+        <div class="hero-ctas">
+          <a href="#fragrances" class="btn-primary">Explore Collection</a>
+          <a href="#guide" class="btn-ghost"
+            >Find Your Scent
+            <i class="fas fa-arrow-right" style="font-size: 0.7rem"></i
+          ></a>
         </div>
+        <div class="hero-stat">
+          <div class="stat-item">
+            <div class="stat-num">14+</div>
+            <div class="stat-label">Rare Ingredients</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">2010</div>
+            <div class="stat-label">Est. in Uganda</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">5K+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img
+          src="./assets/scents/Noir Spice.jpg"
+          alt="Luxury fragrance lifestyle"
+        />
+      </div>
     </section>
 
-    <!-- Featured Fragrances -->
-    <section id="fragrances" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Signature Collection</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">
-                Each fragrance tells a unique story. Select from our curated collection of exquisite scents.
-            </p>
+    <!-- MARQUEE  -->
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-inner">
+        <span class="marquee-item">Ambré Étoile</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Azure Mist</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Noir Spice</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Rare Botanicals</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Crafted in Uganda</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Signature Scents</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Ambré Étoile</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Azure Mist</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Noir Spice</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Rare Botanicals</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Crafted in Uganda</span
+        ><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Signature Scents</span
+        ><span class="marquee-dot">✦</span>
+      </div>
+    </div>
+
+    <!--  FRAGRANCES  -->
+    <section id="fragrances">
+      <div class="fragrances-header reveal">
+        <div>
+          <div class="section-eyebrow">Our Collection</div>
+          <h2 class="section-title">Signature <em>Fragrances</em></h2>
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Fragrance 1 -->
-            <div class="perfume-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                <div class="relative overflow-hidden h-80">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f07eea7-00a7-4f27-9009-ccdba9dd2ef2.png" alt="Elegant glass perfume bottle with golden accents placed on a marble surface, surrounded by fresh roses and vanilla beans"
-                        class="w-full h-full object-cover transition duration-300 hover:scale-105">
-                    <span class="absolute top-4 right-4 bg-white rounded-full px-3 py-1 text-xs font-medium">
-                        Best Seller
-                    </span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Ambré Étoile</h3>
-                    <p class="text-gray-600 mb-4">
-                        <span class="block">Top: Bergamot, Saffron</span>
-                        <span class="block">Heart: Rose, Jasmine</span>
-                        <span class="block">Base: Vanilla, Amber, Sandalwood</span>
-                    </p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-lg font-bold">UGX 475,000</span>
-                        <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-full text-sm transition">
-                            Add to Bag
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fragrance 2 -->
-            <div class="perfume-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                <div class="relative overflow-hidden h-80">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a0852713-231f-40b0-b250-b6ac4644a785.png" alt="Modern blue perfume bottle with aquatic theme" class="w-full h-full object-cover transition duration-300 hover:scale-105">
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Azure Mist</h3>
-                    <p class="text-gray-600 mb-4">
-                        <span class="block">Top: Sea Salt, Lime</span>
-                        <span class="block">Heart: Lavender, Violet</span>
-                        <span class="block">Base: Musk, Driftwood</span>
-                    </p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-lg font-bold">UGX 418,000</span>
-                        <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-full text-sm transition">
-                            Add to Bag
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fragrance 3 -->
-            <div class="perfume-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                <div class="relative overflow-hidden h-80">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7428202d-050d-4cc8-a640-4819ad276e4f.png" alt="Dark glass perfume bottle with silver details sitting among fresh oranges, cinnamon sticks, and cloves" class="w-full h-full object-cover transition duration-300 hover:scale-105">
-                    <span class="absolute top-4 right-4 bg-white rounded-full px-3 py-1 text-xs font-medium">
-                        New
-                    </span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Noir Spice</h3>
-                    <p class="text-gray-600 mb-4">
-                        <span class="block">Top: Black Pepper, Mandarin</span>
-                        <span class="block">Heart: Cinnamon, Clove</span>
-                        <span class="block">Base: Leather, Patchouli</span>
-                    </p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-lg font-bold">UGX 513,000</span>
-                        <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-full text-sm transition">
-                            Add to Bag
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-12">
-            <a href="#" class="inline-block border border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white 
-            px-6 py-2 rounded-full font-medium transition duration-300">
-                View All Fragrances
-            </a>
-        </div>
+        <p class="section-sub">
+          Each scent tells a unique story. Select from our curated collection of
+          exquisite, long-lasting perfumes.
+        </p>
+      </div>
+      <div class="fragrances-grid" id="fragrancesGrid"></div>
+      <div class="view-all-wrap reveal">
+        <a href="#" class="btn-outline">View All Fragrances</a>
+      </div>
     </section>
 
-    <!-- Scent Wheel Interactive -->
-    <section id="guide" class="py-20 bg-amber-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Find Your Perfect Scent</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Discover which fragrance family best suits your personality and preferences
-                </p>
-            </div>
-
-            <div class="flex flex-col lg:flex-row items-center justify-between">
-                <div class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto lg:mx-0 mb-12 lg:mb-0 scent-wheel">
-                    <!-- Will be enhanced with JavaScript -->
-                </div>
-
-                <div class="max-w-md lg:ml-12">
-                    <div class="space-y-8">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-8 w-8 rounded-full bg-pink-200 flex items-center justify-center">
-                                <i class="fas fa-fan text-pink-600"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-bold mb-1">Floral</h3>
-                                <p class="text-gray-600">
-                                    Romantic and feminine, featuring notes of rose, jasmine, and peony. Perfect for those who love classic, garden-inspired scents.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-8 w-8 rounded-full bg-yellow-200 flex items-center justify-center">
-                                <i class="fas fa-sun text-yellow-600"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-bold mb-1">Citrus</h3>
-                                <p class="text-gray-600">
-                                    Bright and refreshing, with notes of bergamot, lemon, and grapefruit. Ideal for daytime wear and summer months.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-8 w-8 rounded-full bg-green-200 flex items-center justify-center">
-                                <i class="fas fa-leaf text-green-600"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-bold mb-1">Woody</h3>
-                                <p class="text-gray-600">
-                                    Warm and masculine, with notes of sandalwood, cedar, and vetiver. Great for cooler weather and evening wear.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!--  SCENT GUIDE  -->
+    <section id="guide">
+      <div style="text-align: center" class="reveal">
+        <div class="section-eyebrow">Fragrance Finder</div>
+        <h2 class="section-title">Find Your Perfect <em>Scent</em></h2>
+        <div class="divider" style="margin: 16px auto 0"></div>
+      </div>
+      <div class="guide-grid">
+        <div class="wheel-wrap reveal">
+          <div class="scent-wheel"></div>
+          <div class="wheel-center">
+            <div class="wheel-center-text">Your<br />Scent<br />Story</div>
+          </div>
         </div>
-    </section>
-
-    <!-- Brand Story -->
-    <section id="about" class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:flex">
-                <div class="lg:w-1/2 pr-0 lg:pr-12 mb-12 lg:mb-0">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1a2f3403-e5d4-47c3-b36f-ecd9dbb81dde.png" alt="Expert perfumer crafting luxury fragrances" class="w-full h-auto rounded-lg shadow-lg">
-                </div>
-                <div class="lg:w-1/2 lg:pl-12 flex items-center">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
-                        <p class="text-gray-600 mb-4">
-                            Founded in Uganda in 2010, LuxeScents was born from a passion for capturing fleeting moments in bottle. Our master perfumer, Antoine Lacroix, creates each fragrance using only the finest ingredients sourced from around the world.
-                        </p>
-                        <p class="text-gray-600 mb-6">
-                            We believe perfume is an invisible accessory that completes your personal style. Each LuxeScents fragrance is meticulously crafted to tell a story and evoke emotion, blending tradition with modern sophistication.
-                        </p>
-                        <a href="#" class="text-amber-600 hover:text-amber-800 font-medium transition">
-                            Learn More About Our Craft →
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Fragrance Lovers Say</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Don't just take our word for it – hear from our customers
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d6021349-ec63-4291-8b0d-b913bf8cd85b.png" alt="Smiling woman in her 30s with curly hair wearing elegant earrings" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Hassrum</h4>
-                            <div class="flex text-amber-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">
-                        "Ambré Étoile is absolutely divine! The vanilla and amber dry down is so sophisticated. I get compliments every time I wear it. Totally worth the investment!"
-                    </p>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9e0bf4d7-9897-4253-ab85-771aa7c49e63.png" alt="Professional looking man in his 40s with glasses and a confident smile" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Hassan</h4>
-                            <div class="flex text-amber-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">
-                        "Noir Spice is my new signature scent. The peppery opening with the smooth leather base is incredible. Long-lasting and distinctive without being overpowering."
-                    </p>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9e0bf4d7-9897-4253-ab85-771aa7c49e63.png" alt="Professional looking man in his 40s with glasses and a confident smile" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Hamza</h4>
-                            <div class="flex text-amber-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">
-                        "Azure Mist is such a perfect summer fragrance! Light and fresh but doesn't disappear after an hour like other aquatic scents I've tried. The packaging is gorgeous too."
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-amber-600 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Find Your Signature Scent Today</h2>
-            <p class="text-amber-100 mb-8 text-xl">
-                Join our community of fragrance lovers and receive 10% off your first purchase
-            </p>
-            <form class="max-w-md mx-auto flex">
-                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
-                <button type="submit" class="bg-amber-800 hover:bg-amber-900 px-6 py-3 rounded-r-lg font-medium transition">
-                    Subscribe
-                </button>
-            </form>
-            <p class="text-amber-200 text-sm mt-4">
-                We respect your privacy. Unsubscribe at any time.
-            </p>
-        </div>
-    </section>
-
-    <!-- CEO Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
-            <div class="w-40 h-40 rounded-full overflow-hidden shadow-lg mb-6 md:mb-0 md:mr-10 flex-shrink-0">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Asha Babirye, CEO of Asha Scents" class="w-full h-full object-cover">
-            </div>
+        <div class="guide-families reveal">
+          <div class="guide-family">
+            <div class="guide-icon" style="background: #fce4ec">🌸</div>
             <div>
-                <h2 class="text-2xl md:text-3xl font-bold mb-2">Asha Babirye</h2>
-                <h3 class="text-amber-700 font-semibold mb-4">Chief Executive Officer</h3>
-                <p class="text-gray-600 text-lg mb-2">
-                    "At Asha Scents, we believe every fragrance tells a story. My mission is to inspire confidence and elegance in every bottle we craft."
-                </p>
-                <p class="text-gray-500 text-sm">— Asha Babirye, CEO</p>
+              <div class="guide-family-name">Floral</div>
+              <div class="guide-family-desc">
+                Romantic and timeless, featuring rose, jasmine, and peony.
+                Perfect for those who love garden-inspired elegance.
+              </div>
             </div>
+          </div>
+          <div class="guide-family">
+            <div class="guide-icon" style="background: #fff9c4">🍋</div>
+            <div>
+              <div class="guide-family-name">Citrus</div>
+              <div class="guide-family-desc">
+                Bright and energising, with bergamot, lemon, and grapefruit.
+                Ideal for daytime wear and summer months.
+              </div>
+            </div>
+          </div>
+          <div class="guide-family">
+            <div class="guide-icon" style="background: #e8f5e9">🌿</div>
+            <div>
+              <div class="guide-family-name">Woody</div>
+              <div class="guide-family-desc">
+                Warm and grounding, with sandalwood, cedar, and vetiver. A
+                natural choice for cooler evenings.
+              </div>
+            </div>
+          </div>
+          <div class="guide-family">
+            <div class="guide-icon" style="background: #ede7f6">✨</div>
+            <div>
+              <div class="guide-family-name">Oriental</div>
+              <div class="guide-family-desc">
+                Rich and sensual, featuring amber, musk, and exotic spices.
+                Bold, memorable, and unforgettable.
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact" class="bg-gray-900 text-gray-400 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div>
-                    <h3 class="text-white text-lg font-bold mb-4">LuxeScents</h3>
-                    <p class="mb-4">
-                        Crafting exquisite fragrances since 2010. Where art and science meet to create unforgettable scents.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-pinterest-p"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-medium mb-4">Shop</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-white transition">All Fragrances</a></li>
-                        <li><a href="#" class="hover:text-white transition">Best Sellers</a></li>
-                        <li><a href="#" class="hover:text-white transition">New Arrivals</a></li>
-                        <li><a href="#" class="hover:text-white transition">Gift Sets</a></li>
-                        <li><a href="#" class="hover:text-white transition">Travel Sizes</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-medium mb-4">About</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-white transition">Our Story</a></li>
-                        <li><a href="#" class="hover:text-white transition">Our Process</a></li>
-                        <li><a href="#" class="hover:text-white transition">Sustainability</a></li>
-                        <li><a href="#" class="hover:text-white transition">Perfume Care</a></li>
-                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-medium mb-4">Contact</h4>
-                    <address class="not-italic">
-                        <p class="mb-2">123 Rue de Parfum</p>
-                        <p class="mb-2">Paris, France 75001</p>
-                        <p class="mb-4">+33 1 2345 6789</p>
-                        <p>
-                            <a href="mailto:babiryejk20@gmail.com" class="text-amber-400 hover:text-amber-300 transition">
-                                babiryejk20@gmail.com
-                            </a>
-                        </p>
-                    </address>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p>© 2025 LuxeScents. All rights reserved.</p>
-                <div class="mt-4 md:mt-0 flex space-x-6">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
-                    <a href="#" class="hover:text-white transition">Shipping Policy</a>
-                </div>
-            </div>
+    <!--  FOOTER  -->
+    <footer id="contact">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Mistry<em>Scents</em></div>
+          <p class="footer-about">
+            Crafting exquisite fragrances since 2010. Where African heritage
+            meets world-class artistry to create unforgettable scents.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="footer-social" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="footer-social" aria-label="Pinterest"
+              ><i class="fab fa-pinterest-p"></i
+            ></a>
+            <a href="#" class="footer-social" aria-label="TikTok"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
         </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#">All Fragrances</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Gift Sets</a></li>
+            <li><a href="#">Travel Sizes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Our Process</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Perfume Care</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address>
+            Kampala, Uganda<br />+256 700 000 000<br /><br /><a
+              href="mailto:babiryejk20@gmail.com"
+              >babiryejk20@gmail.com</a
+            >
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Mistry Scents. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a><a href="#">Terms of Service</a
+          ><a href="#">Shipping Policy</a>
+        </div>
+      </div>
     </footer>
 
-    <!-- Mobile menu toggle script -->
-    <script>
-        // Mobile menu toggle
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuButton.addEventListener('click', function(event) {
-            event.stopPropagation();
-            mobileMenu.classList.toggle('hidden');
-        });
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && event.target !== menuButton) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-        // Simple animation for scent wheel
-        const wheel = document.querySelector('.scent-wheel');
-        if (wheel) {
-            let rotation = 0;
-            setInterval(() => {
-                rotation += 0.5;
-                wheel.style.transform = `rotate(${rotation}deg)`;
-            }, 50);
-        }
-        // Fade-in animation for elements
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        fadeElements.forEach(el => {
-            el.style.opacity = 0;
-            fadeObserver.observe(el);
-        });
-        // Disable right-click/context menu
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-    </script>
-</body>
+    <!--  CART SIDEBAR  -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping bag">
+      <div class="cart-header">
+        <h2 class="cart-title">Your Bag</h2>
+        <button class="cart-close" id="cartClose" aria-label="Close bag">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-summary">
+          <div class="cart-row">
+            <span>Subtotal</span><span id="cartSubtotal">UGX 0</span>
+          </div>
+          <div class="cart-row">
+            <span>Shipping</span><span id="cartShipping">—</span>
+          </div>
+          <div class="cart-row total">
+            <span>Total</span><span id="cartTotal">UGX 0</span>
+          </div>
+        </div>
+        <button class="btn-checkout" id="btnCheckout">
+          Proceed to Checkout
+        </button>
+        <button class="cart-continue" id="cartContinue">
+          Continue Shopping
+        </button>
+      </div>
+    </aside>
 
+    <!--  TOAST  -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <i class="toast-icon fas fa-check"></i>
+      <span class="toast-msg"></span>
+    </div>
+
+    <script src="./js/index.js"></script>
+  </body>
 </html>
