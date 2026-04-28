@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Bag | Mistry Scent</title>
+    <link rel="stylesheet" href="../css/cart.css" ></link>
   </head>
   <body>
     <!--  NAV  -->

@@ -158,6 +158,7 @@ function renderItems() {
       (item) => `
         <div class="cart-item-row reveal">
             <img class="cart-item-img" src="${item.img}" alt="${item.name}">
+
             <div class="cart-item-info">
                 <div class="cart-item-name">${item.name}</div>
                 <div class="cart-item-family">${item.family}</div>
