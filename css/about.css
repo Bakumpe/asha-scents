@@ -223,6 +223,15 @@ nav.scrolled {
   line-height: 1.9;
   font-weight: 300;
 }
+.nav-account{
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brown);
+  font-weight: 400;
+  transition: color var(--transition);
+  cursor: pointer;
+}
 
 /* ABOUT SECTION */
 #about {

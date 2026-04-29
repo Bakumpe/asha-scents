@@ -1,0 +1,189 @@
+/* ── LOGIN PAGE — inherits MistryScents design tokens ── */
+/* Place this file at: pages/login.css                    */
+
+:root {
+  --cream: #f8f4ee;
+  --warm-white: #fdfaf6;
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --gold-dark: #9d7a45;
+  --charcoal: #1a1714;
+  --brown: #3d2b1f;
+  --mid: #6b5744;
+  --text-muted: #9a8778;
+  --border: rgba(201, 169, 110, 0.25);
+  --transition: 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  background: linear-gradient(135deg, var(--warm-white) 60%, #f0e8da);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--charcoal);
+}
+
+/* ── CARD ── */
+.card {
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 48px 44px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.07);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+/* ── BRAND HEADER ── */
+.login-brand {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--charcoal);
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.login-brand em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.login-eyebrow {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 6px;
+  color: var(--charcoal);
+}
+
+.login-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 32px;
+}
+
+/* ── FLASH MESSAGES ── */
+.flash {
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  border-left: 2px solid;
+}
+.flash.error {
+  background: #fdf4f4;
+  color: #8b2020;
+  border-color: #c0392b;
+}
+.flash.success {
+  background: #f4fdf6;
+  color: #1a5e35;
+  border-color: #27ae60;
+}
+
+/* ── FORM ── */
+label {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  background: var(--warm-white);
+  font-family: "Jost", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 20px;
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.12);
+}
+
+/* ── SUBMIT ── */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: var(--charcoal);
+  color: var(--cream);
+  border: 1px solid var(--charcoal);
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background var(--transition), border-color var(--transition);
+  margin-top: 4px;
+}
+
+button[type="submit"]:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+/* ── FOOTER NOTE ── */
+.login-footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.login-footer a {
+  color: var(--gold-dark);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.login-footer a:hover {
+  color: var(--gold);
+}

@@ -159,6 +159,15 @@ nav.scrolled {
   font-size: 1.1rem;
   color: var(--charcoal);
 }
+.nav-account{
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brown);
+  font-weight: 400;
+  transition: color var(--transition);
+  cursor: pointer;
+}
 .mobile-menu {
   position: fixed;
   inset: 0;

@@ -176,6 +176,13 @@ function e(string $s): string { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8')
     <i class="fas fa-shopping-bag" style="font-size:0.85rem"></i>
     <span class="nav-bag-count"><?= $item_count ?></span>
   </button>
+
+  <div class="nav-account">
+    <a href="login.php" id="nav-account" aria-label="User account"
+          ><i class="fas fa-user"></i
+    ></a>
+  </div>
+
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
     <i class="fas fa-bars"></i>
   </button>
