@@ -1,6 +1,6 @@
-// ══════════════════════════════════════════════════════════
+// 
 // FRAGRANCES  (single source of truth — matches cart.php)
-// ══════════════════════════════════════════════════════════
+//
 const FRAGRANCES = [
   { id:1,  name:"Ambré Étoile",  family:"Oriental",         badge:"Best Seller", notes:"Vanilla · Amber · Sandalwood · Musk",        price:1850000,  img:"./assets/scents/AmbréÉtoile.jpg" },
   { id:2,  name:"Azure Mist",    family:"Aquatic",          badge:"New",         notes:"Sea Salt · Bergamot · White Cedar · Vetiver", price:1650000,  img:"./assets/scents/Azure Mist.jpg" },
@@ -14,9 +14,9 @@ const FRAGRANCES = [
   { id:10, name:"Dior Sauvage",  family:"Aromatic Fougère", badge:"Limited",     notes:"Calabrian Bergamot · Lavender",               price:4250000,  img:"./assets/scents/Dior Sauvage.jpg" },
 ];
 
-// ══════════════════════════════════════════════════════════
+// 
 // CART API  — all state lives in cart.php $_SESSION
-// ══════════════════════════════════════════════════════════
+// 
 
 // POST an action to cart.php and return the updated cart JSON
 async function cartPost(action, id = null) {
@@ -58,9 +58,9 @@ async function sidebarAction(action, id) {
   renderSidebar(cart);
 }
 
-// ══════════════════════════════════════════════════════════
+// 
 // RENDER
-// ══════════════════════════════════════════════════════════
+// 
 function fmt(n) { return 'UGX ' + n.toLocaleString(); }
 
 function renderSidebar(cart) {
@@ -119,9 +119,9 @@ function renderFragrances() {
   document.querySelectorAll('.frag-card.reveal').forEach(el => observer.observe(el));
 }
 
-// ══════════════════════════════════════════════════════════
+// 
 // TOAST
-// ══════════════════════════════════════════════════════════
+// 
 let toastTimer;
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -131,9 +131,9 @@ function showToast(msg) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-// ══════════════════════════════════════════════════════════
+// 
 // CART SIDEBAR OPEN / CLOSE
-// ══════════════════════════════════════════════════════════
+// 
 function openCart() {
   document.getElementById('cartSidebar').classList.add('open');
   document.getElementById('cartOverlay').classList.add('active');
@@ -146,9 +146,9 @@ function closeCart() {
   document.body.style.overflow = '';
 }
 
-// ══════════════════════════════════════════════════════════
+// 
 // SCROLL REVEAL
-// ══════════════════════════════════════════════════════════
+// 
 const observer = new IntersectionObserver(
   entries => entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -157,9 +157,9 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ══════════════════════════════════════════════════════════
+// 
 // NAV / EVENTS
-// ══════════════════════════════════════════════════════════
+// 
 window.addEventListener('scroll', () =>
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60)
 );
@@ -184,8 +184,8 @@ document.getElementById('nav-account').addEventListener('click', () => {
 
 });
 
-// ══════════════════════════════════════════════════════════
+// 
 // INIT
-// ══════════════════════════════════════════════════════════
+// 
 renderFragrances();
 fetchCart().then(renderSidebar);

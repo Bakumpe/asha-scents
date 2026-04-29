@@ -1,3 +1,4 @@
+<!-- TESTIMONIALS -->
 <?php
 session_start();
 
